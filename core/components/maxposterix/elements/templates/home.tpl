@@ -1,0 +1,1 @@
+<div id="maxposterix-panel-home-div"></div>
