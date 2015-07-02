@@ -2,17 +2,24 @@
 <model package="maxposterix" baseClass="xPDOObject" platform="mysql" defaultEngine="MyISAM" phpdoc-package="maxposterix"
 	   version="1.1">
 
-	<object class="maxPosterixItem" table="maxposterix_items" extends="xPDOSimpleObject">
-		<field key="name" dbtype="varchar" precision="100" phptype="string" null="false" default=""/>
-		<field key="description" dbtype="text" phptype="text" null="true" default=""/>
-		<field key="active" dbtype="tinyint" precision="1" phptype="boolean" null="true" default="1"/>
+	<object class="mxCars" table="maxposterix_cars" extends="xPDOSimpleObject">
+		<field key="resource_id" dbtype="int" precision="10" phptype="integer" null="false" default=""/>
+		<field key="maxposter_id" dbtype="int" precision="10" phptype="integer" null="false" default=""/>
+		<field key="active" dbtype="int" precision="10" phptype="integer" null="false" default=""/>
 
-		<index alias="name" name="name" primary="false" unique="false" type="BTREE">
-			<column key="name" length="" collation="A" null="false"/>
+
+
+		<index alias="resource_id" name="resource_id" primary="false" unique="false" type="BTREE">
+			<column key="resource_id" length="" collation="A" null="false"/>
+		</index>
+		<index alias="maxposter_id" name="maxposter_id" primary="false" unique="false" type="BTREE">
+			<column key="maxposter_id" length="" collation="A" null="false"/>
 		</index>
 		<index alias="active" name="active" primary="false" unique="false" type="BTREE">
 			<column key="active" length="" collation="A" null="false"/>
 		</index>
+
+		<aggregate alias="Resources" class="modResources" local="resource_id" foreign="id" cardinality="one" owner="foreign" />
 	</object>
 
 </model>
