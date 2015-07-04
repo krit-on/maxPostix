@@ -16,14 +16,15 @@ abstract class maxPosterixMainController extends modExtraManagerController {
 		require_once $corePath . 'model/maxposterix/maxposterix.class.php';
 
 		$this->maxPosterix = new maxPosterix($this->modx);
+
 		$this->addCss($this->maxPosterix->config['cssUrl'] . 'mgr/main.css');
 		$this->addJavascript($this->maxPosterix->config['jsUrl'] . 'mgr/maxposterix.js');
-		$this->addHtml('
-		<script type="text/javascript">
+		$this->addHtml('<script type="text/javascript">
+		Ext.onReady(function() {
 			maxPosterix.config = ' . $this->modx->toJSON($this->maxPosterix->config) . ';
 			maxPosterix.config.connector_url = "' . $this->maxPosterix->config['connectorUrl'] . '";
-		</script>
-		');
+		});
+		</script>');
 
 		parent::initialize();
 	}

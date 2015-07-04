@@ -3,8 +3,8 @@
 $chunks = array();
 
 $tmp = array(
-	'tpl.maxPosterix.item' => array(
-		'file' => 'item',
+	'tpl.maxPosterix.car' => array(
+		'file' => 'car',
 		'description' => '',
 	),
 );

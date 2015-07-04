@@ -1,14 +1,14 @@
-maxPosterix.window.CreateItem = function (config) {
+maxPosterix.window.CreateCar = function (config) {
 	config = config || {};
 	if (!config.id) {
-		config.id = 'maxposterix-item-window-create';
+		config.id = 'maxposterix-car-window-create';
 	}
 	Ext.applyIf(config, {
-		title: _('maxposterix_item_create'),
+		title: _('maxposterix_car_create'),
 		width: 550,
 		autoHeight: true,
 		url: maxPosterix.config.connector_url,
-		action: 'mgr/item/create',
+		action: 'mgr/car/create',
 		fields: this.getFields(config),
 		keys: [{
 			key: Ext.EventObject.ENTER, shift: true, fn: function () {
@@ -16,28 +16,28 @@ maxPosterix.window.CreateItem = function (config) {
 			}, scope: this
 		}]
 	});
-	maxPosterix.window.CreateItem.superclass.constructor.call(this, config);
+	maxPosterix.window.CreateCar.superclass.constructor.call(this, config);
 };
-Ext.extend(maxPosterix.window.CreateItem, MODx.Window, {
+Ext.extend(maxPosterix.window.CreateCar, MODx.Window, {
 
 	getFields: function (config) {
 		return [{
 			xtype: 'textfield',
-			fieldLabel: _('maxposterix_item_name'),
-			name: 'name',
-			id: config.id + '-name',
+			fieldLabel: _('maxposterix_car_resource_id'),
+			name: 'resource_id',
+			id: config.id + '-resource_id',
 			anchor: '99%',
 			allowBlank: false,
 		}, {
 			xtype: 'textarea',
-			fieldLabel: _('maxposterix_item_description'),
-			name: 'description',
-			id: config.id + '-description',
+			fieldLabel: _('maxposterix_car_maxposter_id'),
+			name: 'maxposter_id',
+			id: config.id + '-maxposter_id',
 			height: 150,
 			anchor: '99%'
 		}, {
 			xtype: 'xcheckbox',
-			boxLabel: _('maxposterix_item_active'),
+			boxLabel: _('maxposterix_car_active'),
 			name: 'active',
 			id: config.id + '-active',
 			checked: true,
@@ -45,20 +45,20 @@ Ext.extend(maxPosterix.window.CreateItem, MODx.Window, {
 	}
 
 });
-Ext.reg('maxposterix-item-window-create', maxPosterix.window.CreateItem);
+Ext.reg('maxposterix-car-window-create', maxPosterix.window.CreateCar);
 
 
-maxPosterix.window.UpdateItem = function (config) {
+maxPosterix.window.UpdateCar = function (config) {
 	config = config || {};
 	if (!config.id) {
-		config.id = 'maxposterix-item-window-update';
+		config.id = 'maxposterix-car-window-update';
 	}
 	Ext.applyIf(config, {
-		title: _('maxposterix_item_update'),
+		title: _('maxposterix_car_update'),
 		width: 550,
 		autoHeight: true,
 		url: maxPosterix.config.connector_url,
-		action: 'mgr/item/update',
+		action: 'mgr/car/update',
 		fields: this.getFields(config),
 		keys: [{
 			key: Ext.EventObject.ENTER, shift: true, fn: function () {
@@ -66,9 +66,9 @@ maxPosterix.window.UpdateItem = function (config) {
 			}, scope: this
 		}]
 	});
-	maxPosterix.window.UpdateItem.superclass.constructor.call(this, config);
+	maxPosterix.window.UpdateCar.superclass.constructor.call(this, config);
 };
-Ext.extend(maxPosterix.window.UpdateItem, MODx.Window, {
+Ext.extend(maxPosterix.window.UpdateCar, MODx.Window, {
 
 	getFields: function (config) {
 		return [{
@@ -77,25 +77,25 @@ Ext.extend(maxPosterix.window.UpdateItem, MODx.Window, {
 			id: config.id + '-id',
 		}, {
 			xtype: 'textfield',
-			fieldLabel: _('maxposterix_item_name'),
-			name: 'name',
-			id: config.id + '-name',
+			fieldLabel: _('maxposterix_car_resource_id'),
+			name: 'resource_id',
+			id: config.id + '-resource_id',
 			anchor: '99%',
 			allowBlank: false,
 		}, {
 			xtype: 'textarea',
-			fieldLabel: _('maxposterix_item_description'),
-			name: 'description',
-			id: config.id + '-description',
+			fieldLabel: _('maxposterix_car_maxposter_id'),
+			name: 'maxposter_id',
+			id: config.id + '-maxposter_id',
 			anchor: '99%',
 			height: 150,
 		}, {
 			xtype: 'xcheckbox',
-			boxLabel: _('maxposterix_item_active'),
+			boxLabel: _('maxposterix_car_active'),
 			name: 'active',
 			id: config.id + '-active',
 		}];
 	}
 
 });
-Ext.reg('maxposterix-item-window-update', maxPosterix.window.UpdateItem);
+Ext.reg('maxposterix-car-window-update', maxPosterix.window.UpdateCar);

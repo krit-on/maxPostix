@@ -2,33 +2,26 @@
 include_once 'setting.inc.php';
 
 $_lang['maxposterix'] = 'maxPosterix';
-$_lang['maxposterix_menu_desc'] = 'Пример расширения для разработки.';
-$_lang['maxposterix_intro_msg'] = 'Вы можете выделять сразу несколько предметов при помощи Shift или Ctrl.';
+$_lang['maxposterix_menu_desc'] = 'Экспорт объявлений салона из Maxposter.';
 
-$_lang['maxposterix_items'] = 'Предметы';
-$_lang['maxposterix_item_id'] = 'Id';
-$_lang['maxposterix_item_name'] = 'Название';
-$_lang['maxposterix_item_description'] = 'Описание';
-$_lang['maxposterix_item_active'] = 'Активно';
+$_lang['maxposterix_cars'] = 'Экспорт объявлений';
+$_lang['maxposterix_cars_intro'] = 'На этой страницы вы можете сделать экспорт объявлений из Maxposter.';
 
-$_lang['maxposterix_item_create'] = 'Создать предмет';
-$_lang['maxposterix_item_update'] = 'Изменить Предмет';
-$_lang['maxposterix_item_enable'] = 'Включить Предмет';
-$_lang['maxposterix_items_enable'] = 'Включить Предметы';
-$_lang['maxposterix_item_disable'] = 'Отключить Предмет';
-$_lang['maxposterix_items_disable'] = 'Отключить Предметы';
-$_lang['maxposterix_item_remove'] = 'Удалить Предмет';
-$_lang['maxposterix_items_remove'] = 'Удалить Предметы';
-$_lang['maxposterix_item_remove_confirm'] = 'Вы уверены, что хотите удалить этот Предмет?';
-$_lang['maxposterix_items_remove_confirm'] = 'Вы уверены, что хотите удалить эти Предметы?';
-$_lang['maxposterix_item_active'] = 'Включено';
+$_lang['maxposterix_btn_create'] = 'Создать';
+$_lang['maxposterix_btn_export'] = 'Сделать экспорт';
 
-$_lang['maxposterix_item_err_name'] = 'Вы должны указать имя Предмета.';
-$_lang['maxposterix_item_err_ae'] = 'Предмет с таким именем уже существует.';
-$_lang['maxposterix_item_err_nf'] = 'Предмет не найден.';
-$_lang['maxposterix_item_err_ns'] = 'Предмет не указан.';
-$_lang['maxposterix_item_err_remove'] = 'Ошибка при удалении Предмета.';
-$_lang['maxposterix_item_err_save'] = 'Ошибка при сохранении Предмета.';
+$_lang['maxposterix_car_id'] = 'Id';
+$_lang['maxposterix_car_resource_id'] = 'Id ресурса';
+$_lang['maxposterix_car_maxposter_id'] = 'Id объявления в Maxposter';
+$_lang['maxposterix_car_active'] = 'В архиве';
+$_lang['maxposterix_car_actions'] = 'Действия';
 
-$_lang['maxposterix_grid_search'] = 'Поиск';
-$_lang['maxposterix_grid_actions'] = 'Действия';
+$_lang['maxposterix_car_remove'] = 'Удаление объявления';
+$_lang['maxposterix_cars_remove'] = 'Удаление объявления';
+$_lang['maxposterix_car_remove_confirm'] = 'Вы действительно хотите удалить это объявление?';
+$_lang['maxposterix_cars_remove_confirm'] = 'Вы действительно хотите удалить это объявление?';
+
+//$_lang['maxposterix_car_err_ns'] = 'dfs32';
+//$_lang['maxposterix_car_err_resource_id'] = 'dfs3234';
+//$_lang['maxposterix_car_err_ae'] = 'dfs3234dfdf';
+

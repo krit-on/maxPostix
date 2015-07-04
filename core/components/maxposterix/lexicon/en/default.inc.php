@@ -2,32 +2,17 @@
 include_once 'setting.inc.php';
 
 $_lang['maxposterix'] = 'maxPosterix';
-$_lang['maxposterix_menu_desc'] = 'A sample Extra to develop from.';
-$_lang['maxposterix_intro_msg'] = 'You can select multiple items by holding Shift or Ctrl button.';
+$_lang['maxposterix_menu_desc'] = 'Export ads interior of Maxposter.';
 
-$_lang['maxposterix_items'] = 'Items';
-$_lang['maxposterix_item_id'] = 'Id';
-$_lang['maxposterix_item_name'] = 'Name';
-$_lang['maxposterix_item_description'] = 'Description';
-$_lang['maxposterix_item_active'] = 'Active';
+$_lang['maxposterix_cars'] = 'Export ads';
+$_lang['maxposterix_cars_intro'] = 'On this page you can make the export of ads Maxposter.';
 
-$_lang['maxposterix_item_create'] = 'Create Item';
-$_lang['maxposterix_item_update'] = 'Update Item';
-$_lang['maxposterix_item_enable'] = 'Enable Item';
-$_lang['maxposterix_items_enable'] = 'Enable Items';
-$_lang['maxposterix_item_disable'] = 'Disable Item';
-$_lang['maxposterix_items_disable'] = 'Disable Items';
-$_lang['maxposterix_item_remove'] = 'Remove Item';
-$_lang['maxposterix_items_remove'] = 'Remove Items';
-$_lang['maxposterix_item_remove_confirm'] = 'Are you sure you want to remove this Item?';
-$_lang['maxposterix_items_remove_confirm'] = 'Are you sure you want to remove this Items?';
+$_lang['maxposterix_btn_create'] = 'Create';
+$_lang['maxposterix_btn_export'] = 'Make export';
 
-$_lang['maxposterix_item_err_name'] = 'You must specify the name of Item.';
-$_lang['maxposterix_item_err_ae'] = 'An Item already exists with that name.';
-$_lang['maxposterix_item_err_nf'] = 'Item not found.';
-$_lang['maxposterix_item_err_ns'] = 'Item not specified.';
-$_lang['maxposterix_item_err_remove'] = 'An error occurred while trying to remove the Item.';
-$_lang['maxposterix_item_err_save'] = 'An error occurred while trying to save the Item.';
 
-$_lang['maxposterix_grid_search'] = 'Search';
-$_lang['maxposterix_grid_actions'] = 'Actions';
+$_lang['maxposterix_car_id'] = 'Id';
+$_lang['maxposterix_car_resource_id'] = 'Id resource';
+$_lang['maxposterix_car_maxposter_id'] = 'Id ads in Maxposter';
+$_lang['maxposterix_car_active'] = 'In archive';
+$_lang['maxposterix_car_actions'] = 'Actions';

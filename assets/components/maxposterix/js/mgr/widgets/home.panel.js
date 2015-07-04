@@ -20,14 +20,14 @@ maxPosterix.panel.Home = function (config) {
 			border: true,
 			hideMode: 'offsets',
 			items: [{
-				title: _('maxposterix_items'),
-				layout: 'anchor',
+				title: _('maxposterix_cars'),
 				items: [{
-					html: _('maxposterix_intro_msg'),
-					cls: 'panel-desc',
+					html: _('maxposterix_cars_intro')
+					,cls: 'panel-desc'
 				}, {
-					xtype: 'maxposterix-grid-items',
-					cls: 'main-wrapper',
+					xtype: 'maxposterix-grid-cars'
+					,cls: 'main-wrapper'
+					,preventRender: true
 				}]
 			}]
 		}]

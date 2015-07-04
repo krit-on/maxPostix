@@ -3,9 +3,9 @@
 /**
  * Get an Item
  */
-class maxPosterixItemGetProcessor extends modObjectGetProcessor {
-	public $objectType = 'maxPosterixItem';
-	public $classKey = 'maxPosterixItem';
+class mxCarsGetProcessor extends modObjectGetProcessor {
+	public $objectType = 'mxCars';
+	public $classKey = 'mxCars';
 	public $languageTopics = array('maxposterix:default');
 	//public $permission = 'view';
 
@@ -26,4 +26,4 @@ class maxPosterixItemGetProcessor extends modObjectGetProcessor {
 
 }
 
-return 'maxPosterixItemGetProcessor';
+return 'mxCarsGetProcessor';

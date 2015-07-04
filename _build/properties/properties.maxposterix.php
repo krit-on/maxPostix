@@ -5,7 +5,7 @@ $properties = array();
 $tmp = array(
 	'tpl' => array(
 		'type' => 'textfield',
-		'value' => 'tpl.maxPosterix.item',
+		'value' => 'tpl.maxPosterix.car',
 	),
 	'sortby' => array(
 		'type' => 'textfield',

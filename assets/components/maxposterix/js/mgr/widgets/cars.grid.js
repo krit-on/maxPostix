@@ -1,7 +1,7 @@
-maxPosterix.grid.Items = function (config) {
+maxPosterix.grid.Cars = function (config) {
 	config = config || {};
 	if (!config.id) {
-		config.id = 'maxposterix-grid-items';
+		config.id = 'maxposterix-grid-cars';
 	}
 	Ext.applyIf(config, {
 		url: maxPosterix.config.connector_url,
@@ -10,12 +10,12 @@ maxPosterix.grid.Items = function (config) {
 		tbar: this.getTopBar(config),
 		sm: new Ext.grid.CheckboxSelectionModel(),
 		baseParams: {
-			action: 'mgr/item/getlist'
+			action: 'mgr/car/getlist'
 		},
 		listeners: {
 			rowDblClick: function (grid, rowIndex, e) {
 				var row = grid.store.getAt(rowIndex);
-				this.updateItem(grid, e, row);
+				this.updateCar(grid, e, row);
 			}
 		},
 		viewConfig: {
@@ -34,7 +34,7 @@ maxPosterix.grid.Items = function (config) {
 		remoteSort: true,
 		autoHeight: true,
 	});
-	maxPosterix.grid.Items.superclass.constructor.call(this, config);
+	maxPosterix.grid.Cars.superclass.constructor.call(this, config);
 
 	// Clear selection on grid refresh
 	this.store.on('load', function () {
@@ -43,7 +43,7 @@ maxPosterix.grid.Items = function (config) {
 		}
 	}, this);
 };
-Ext.extend(maxPosterix.grid.Items, MODx.grid.Grid, {
+Ext.extend(maxPosterix.grid.Cars, MODx.grid.Grid, {
 	windows: {},
 
 	getMenu: function (grid, rowIndex) {
@@ -52,12 +52,12 @@ Ext.extend(maxPosterix.grid.Items, MODx.grid.Grid, {
 		var row = grid.getStore().getAt(rowIndex);
 		var menu = maxPosterix.utils.getMenu(row.data['actions'], this, ids);
 
-		this.addContextMenuItem(menu);
+		this.addContextMenuCar(menu);
 	},
 
-	createItem: function (btn, e) {
+	createCar: function (btn, e) {
 		var w = MODx.load({
-			xtype: 'maxposterix-item-window-create',
+			xtype: 'maxposterix-car-window-create',
 			id: Ext.id(),
 			listeners: {
 				success: {
@@ -72,7 +72,7 @@ Ext.extend(maxPosterix.grid.Items, MODx.grid.Grid, {
 		w.show(e.target);
 	},
 
-	updateItem: function (btn, e, row) {
+	updateCar: function (btn, e, row) {
 		if (typeof(row) != 'undefined') {
 			this.menu.record = row.data;
 		}
@@ -84,14 +84,14 @@ Ext.extend(maxPosterix.grid.Items, MODx.grid.Grid, {
 		MODx.Ajax.request({
 			url: this.config.url,
 			params: {
-				action: 'mgr/item/get',
+				action: 'mgr/car/get',
 				id: id
 			},
 			listeners: {
 				success: {
 					fn: function (r) {
 						var w = MODx.load({
-							xtype: 'maxposterix-item-window-update',
+							xtype: 'maxposterix-car-window-update',
 							id: Ext.id(),
 							record: r,
 							listeners: {
@@ -111,21 +111,21 @@ Ext.extend(maxPosterix.grid.Items, MODx.grid.Grid, {
 		});
 	},
 
-	removeItem: function (act, btn, e) {
+	removeCar: function (act, btn, e) {
 		var ids = this._getSelectedIds();
 		if (!ids.length) {
 			return false;
 		}
 		MODx.msg.confirm({
 			title: ids.length > 1
-				? _('maxposterix_items_remove')
-				: _('maxposterix_item_remove'),
+				? _('maxposterix_cars_remove')
+				: _('maxposterix_car_remove'),
 			text: ids.length > 1
-				? _('maxposterix_items_remove_confirm')
-				: _('maxposterix_item_remove_confirm'),
+				? _('maxposterix_cars_remove_confirm')
+				: _('maxposterix_car_remove_confirm'),
 			url: this.config.url,
 			params: {
-				action: 'mgr/item/remove',
+				action: 'mgr/car/remove',
 				ids: Ext.util.JSON.encode(ids),
 			},
 			listeners: {
@@ -139,7 +139,7 @@ Ext.extend(maxPosterix.grid.Items, MODx.grid.Grid, {
 		return true;
 	},
 
-	disableItem: function (act, btn, e) {
+	disableCar: function (act, btn, e) {
 		var ids = this._getSelectedIds();
 		if (!ids.length) {
 			return false;
@@ -147,7 +147,7 @@ Ext.extend(maxPosterix.grid.Items, MODx.grid.Grid, {
 		MODx.Ajax.request({
 			url: this.config.url,
 			params: {
-				action: 'mgr/item/disable',
+				action: 'mgr/car/disable',
 				ids: Ext.util.JSON.encode(ids),
 			},
 			listeners: {
@@ -160,7 +160,7 @@ Ext.extend(maxPosterix.grid.Items, MODx.grid.Grid, {
 		})
 	},
 
-	enableItem: function (act, btn, e) {
+	enableCar: function (act, btn, e) {
 		var ids = this._getSelectedIds();
 		if (!ids.length) {
 			return false;
@@ -168,7 +168,7 @@ Ext.extend(maxPosterix.grid.Items, MODx.grid.Grid, {
 		MODx.Ajax.request({
 			url: this.config.url,
 			params: {
-				action: 'mgr/item/enable',
+				action: 'mgr/car/enable',
 				ids: Ext.util.JSON.encode(ids),
 			},
 			listeners: {
@@ -182,33 +182,33 @@ Ext.extend(maxPosterix.grid.Items, MODx.grid.Grid, {
 	},
 
 	getFields: function (config) {
-		return ['id', 'name', 'description', 'active', 'actions'];
+		return ['id', 'resource_id', 'maxposter_id', 'active', 'actions'];
 	},
 
 	getColumns: function (config) {
 		return [{
-			header: _('maxposterix_item_id'),
+			header: _('maxposterix_car_id'),
 			dataIndex: 'id',
 			sortable: true,
 			width: 70
 		}, {
-			header: _('maxposterix_item_name'),
-			dataIndex: 'name',
+			header: _('maxposterix_car_resource_id'),
+			dataIndex: 'resource_id',
 			sortable: true,
 			width: 200,
 		}, {
-			header: _('maxposterix_item_description'),
-			dataIndex: 'description',
+			header: _('maxposterix_car_maxposter_id'),
+			dataIndex: 'maxposter_id',
 			sortable: false,
 			width: 250,
 		}, {
-			header: _('maxposterix_item_active'),
+			header: _('maxposterix_car_active'),
 			dataIndex: 'active',
 			renderer: maxPosterix.utils.renderBoolean,
 			sortable: true,
 			width: 100,
 		}, {
-			header: _('maxposterix_grid_actions'),
+			header: _('maxposterix_car_actions'),
 			dataIndex: 'actions',
 			renderer: maxPosterix.utils.renderActions,
 			sortable: false,
@@ -219,8 +219,8 @@ Ext.extend(maxPosterix.grid.Items, MODx.grid.Grid, {
 
 	getTopBar: function (config) {
 		return [{
-			text: '<i class="icon icon-plus"></i>&nbsp;' + _('maxposterix_item_create'),
-			handler: this.createItem,
+			text: '<i class="icon icon-refresh"></i>&nbsp;' + _('maxposterix_btn_export'),
+			handler: this.createCar,
 			scope: this
 		}, '->', {
 			xtype: 'textfield',
@@ -293,4 +293,4 @@ Ext.extend(maxPosterix.grid.Items, MODx.grid.Grid, {
 		this.refresh();
 	}
 });
-Ext.reg('maxposterix-grid-items', maxPosterix.grid.Items);
+Ext.reg('maxposterix-grid-cars', maxPosterix.grid.Cars);
